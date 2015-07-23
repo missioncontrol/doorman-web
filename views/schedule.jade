@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  form.text-center
+    select
+      each date in dates
+        option(value="#{date}") #{date}
+
+    select
+      each time in times
+        option(value="#{time}") #{time} pm
+
+  br
+  br
+
+  .text-center
+    button.schedule Confirm <i class="ion-arrow-right-a"></i>
+
