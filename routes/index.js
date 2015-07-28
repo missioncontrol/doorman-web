@@ -3,7 +3,6 @@ var request = require('request')
 var fs = require('fs')
 var moment = require('moment')
 var router = express.Router()
-var env = require('../env.json')
 
 var pkgs = [], timestamp;
 
@@ -13,7 +12,7 @@ router.get('/', function(req, res) {
   // fs.readFile('./saved.json', function (err, body) {
   request('https://app.doorman.co/app/v1/packages', {
     headers: {
-      'X-DOORMAN-AUTH-TOKEN': env.DOORMAN_TOKEN || process.env.DOORMAN_TOKEN
+      'X-DOORMAN-AUTH-TOKEN': process.env.DOORMAN_TOKEN
     }
   }, function (err, response, body) {
     if (err) {
@@ -76,7 +75,7 @@ router.post('/schedule', function (req, res) {
   request.post({
     url: 'https://app.doorman.co/app/v1/delivery_schedules',
     headers: {
-      'X-DOORMAN-AUTH-TOKEN': env.DOORMAN_TOKEN || process.env.DOORMAN_TOKEN
+      'X-DOORMAN-AUTH-TOKEN': process.env.DOORMAN_TOKEN
     },
     form: {
       delivery_schedule: {

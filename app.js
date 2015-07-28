@@ -7,8 +7,6 @@ var bodyParser = require('body-parser');
 var basicAuth = require('basic-auth-connect')
 
 var routes = require('./routes/index');
-var users = require('./routes/user');
-var env = require('./env.json')
 
 var app = express();
 
@@ -33,7 +31,7 @@ app.locals.ENV_DEVELOPMENT = env == 'development';
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(basicAuth(env.user || process.env.user, env.pwd || process.env.pwd))
+app.use(basicAuth(process.env.user, process.env.pwd))
 
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(logger('dev'));
@@ -45,7 +43,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
