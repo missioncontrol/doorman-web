@@ -4,9 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var basicAuth = require('basic-auth-connect')
 
 var routes = require('./routes/index');
 var users = require('./routes/user');
+var env = require('./env.json')
 
 var app = express();
 
@@ -30,6 +32,8 @@ app.locals.ENV_DEVELOPMENT = env == 'development';
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.use(basicAuth(env.user || process.env.user, env.pwd || process.env.pwd))
 
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(logger('dev'));

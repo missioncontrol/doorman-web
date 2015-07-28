@@ -1,18 +1,18 @@
 extends layout
 
 block content
-  form.text-center
-    select
+  form.text-center(method="post")
+    select(name="date")
       each date in dates
         option(value="#{date}") #{date}
 
-    select
+    select(name="time")
       each time in times
-        option(value="#{time}") #{time} pm
+        option(value="#{time+12}") #{time}-#{time+1} pm
 
-  br
-  br
+    br
+    br
 
-  .text-center
-    button.schedule Confirm <i class="ion-arrow-right-a"></i>
+    .text-center
+      button.schedule Confirm <i class="ion-arrow-right-a"></i>
 

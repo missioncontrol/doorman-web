@@ -13,9 +13,10 @@ block content
         if item.courier_name
           h4 #{item.courier_name} from #{item.sender_description}
 
-        .package-time
-          | #{moment(item.delivery_schedule.deliver_on).calendar(Date.now())} between
-          | #{item.delivery_schedule.deliver_time_begin % 12}-#{item.delivery_schedule.deliver_time_end % 12} pm
+        if item.delivery_schedule
+          .package-time
+            | #{moment(item.delivery_schedule.deliver_on).calendar(Date.now())} between
+            | #{item.delivery_schedule.deliver_time_begin % 12}-#{item.delivery_schedule.deliver_time_end % 12} pm
 
         div(class="package-state #{item.state}") #{item.state}
 
