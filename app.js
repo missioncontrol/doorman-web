@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var basicAuth = require('basic-auth-connect')
 
+require('dotenv').load()
+
 var routes = require('./routes/index');
 
 var app = express();

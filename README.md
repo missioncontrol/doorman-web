@@ -11,6 +11,8 @@ $ npm install
 
 ## Usage
 
+Change `.env.sample` to `.env` and update with proper variables
+
 ```bash
 $ gulp
 ```
