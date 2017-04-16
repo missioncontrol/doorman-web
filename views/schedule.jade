@@ -8,11 +8,10 @@ block content
 
     select(name="time")
       each time in times
-        option(value="#{time+12}") #{time}-#{time+1} pm
+        option(value="#{time+12}") #{time}-#{time+2} pm
 
     br
     br
 
     .text-center
       button.schedule Confirm <i class="ion-arrow-right-a"></i>
-

@@ -46,7 +46,7 @@ router.get('/schedule', function (req, res) {
 
   res.render('schedule', {
     dates: dates,
-    times: [5, 6, 7, 8, 9, 10, 11]
+    times: [6, 8, 10]
     // times: ['5-6', '6-7', '7-8', '8-9', '9-10', '10-11', '11-12']
   })
 })

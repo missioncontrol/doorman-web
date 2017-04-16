@@ -8,10 +8,10 @@ block content
     each item in packages
       div(class="package-item", data-datum='#{JSON.stringify(item)}')
 
-        h2 #{item.description}
+        a.package-image(href="#{item.shipping_label_image_url}")
+          img(width="200", height="200", src="#{item.shipping_label_image_url}")
 
-        if item.courier_name
-          h4 #{item.courier_name} from #{item.sender_description}
+        h2 #{item.courier_name} from #{item.sender_description}
 
         if item.delivery_schedule
           .package-time
